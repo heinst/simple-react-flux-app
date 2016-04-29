@@ -27,6 +27,7 @@ var Combobox = React.createClass({
 		return (
 			<div>
         <Dropbox items={['red', 'green', 'beige', 'The blood of angry men']} />
+        <ColorBox/>
         <p>whut</p>
       </div>
 		)
