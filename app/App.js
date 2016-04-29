@@ -1,15 +1,16 @@
-var React = require('react');
-var Store = require('./Store.js');
-var actions = require('./actions.js');
+var React      = require('react');
+var Store      = require('./Store.js');
+var actions    = require('./actions.js');
+var Dropbox    = require('./dropbox.js');
+var ColorBox   = require('./ColorBox.js');
+
 
 var Combobox = React.createClass({
   getInitialState: function () {
+    console.log(Store.getColor());
     return {
-      color1: 'red',
-      color2: 'green',
-      color3: 'blue',
-      color4: 'yellow'
-    };
+      color:Store.getColor()
+    }
   },
   componentWillMount: function () {
     Store.addChangeListener(this.changeState);
@@ -25,16 +26,10 @@ var Combobox = React.createClass({
 	render: function() {
 		return (
 			<div>
-        <select>
-          <option value={this.state.color1}>{this.state.color1}</option>
-          <option value={this.state.color2}>{this.state.color2}</option>
-        </select>
-        <select>
-          <option value={this.state.color3}>{this.state.color3}</option>
-          <option value={this.state.color4}>{this.state.color4}</option>
-        </select>
+        <Dropbox items={['red', 'green', 'beige', 'The blood of angry men']} />
+        <p>whut</p>
       </div>
-		);
+		)
 	}
 
 });

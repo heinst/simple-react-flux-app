@@ -24,7 +24,9 @@
     "watchify": "^3.3.0"
   },
   "dependencies": {
+    "flux",
     "flux-react": "^2.6.6",
+    "gulp": "^3.9.1",
     "react": "^0.14.x",
     "react-bootstrap": "^0.29.3",
     "react-dom": "^0.14.8"
