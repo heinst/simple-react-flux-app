@@ -3,13 +3,11 @@ var Store = require('./Store.js');
 var actions = require('./actions.js');
 var Dispatcher = require('./ColorDispatcher.js')
 
-var AppDispatcher = new Dispatcher();
-
 var Dropbox = React.createClass({
   handleSelect : function(event) {
 
     console.log(event.target.value);
-    AppDispatcher.dispatch({
+    Dispatcher.dispatch({
         actionName: 'changeColor',
         newItem: { color: event.target.value } // example data
     });

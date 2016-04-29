@@ -3,8 +3,7 @@ var actions = require('./actions.js');
 var Dispatcher = require('./ColorDispatcher.js')
 var _color
 
-var AppDispatcher = new Dispatcher();
-AppDispatcher.register( function( payload ) {
+Dispatcher.register( function( payload ) {
 
     switch( payload.actionName ) {
         // Do we know how to handle this action?
