@@ -7,7 +7,6 @@ var ColorBox   = require('./ColorBox.js');
 
 var Combobox = React.createClass({
   getInitialState: function () {
-    console.log(Store.getColor());
     return {
       color:Store.getColor()
     }
@@ -20,7 +19,7 @@ var Combobox = React.createClass({
   },
   changeState: function () {
     this.setState({
-      colors: Store.getColors()
+      colors: Store.getColor()
     });
   },
 	render: function() {
@@ -28,7 +27,6 @@ var Combobox = React.createClass({
 			<div>
         <Dropbox items={['red', 'green', 'beige', 'The blood of angry men']} />
         <ColorBox/>
-        <p>whut</p>
       </div>
 		)
 	}

@@ -1,20 +1,22 @@
 var flux = require('flux-react');
 var actions = require('./actions.js');
-var Dispatcher = require('./ColorDispatcher.js')
-var _color
+var Dispatcher = require('./ColorDispatcher.js');
+var EventEmitter = require('events').EventEmitter;
 
 Dispatcher.register( function( payload ) {
 
     switch( payload.actionName ) {
         // Do we know how to handle this action?
         case 'changeColor':
-            console.log("HOLY SHIT SOMETHING WORKED!")
+            ColorModel.setColor(payload.newItem.color);
+            break;
+        default:
             break;
     }
 });
-module.exports = flux.createStore({
+var ColorModel = flux.createStore({
 
-  color : "white",
+  color : "red",
 
   changeColor: function(color) {
      for(var i = 0; i < colors.length; i++)
@@ -25,14 +27,18 @@ module.exports = flux.createStore({
          }
      }
   },
-  storeColor: function (color) {
-    this.colors.push(color);
-    this.emitChange();
-  },
   exports: {
     getColor: function () {
       return this.color;
+    },
+
+    setColor: function(c) {
+      this.color = c;
+      this.emit('changeColor');
     }
+
   },
 
   });
+
+  module.exports = ColorModel;
